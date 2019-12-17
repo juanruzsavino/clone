@@ -1,0 +1,456 @@
+1)
+
+
+select * from PLANTAS as PL where PL.STOCK  between 100 and 150 and PL.PRECIO * PL.STOCK = 3000;
+
++------------+-------------+-----------------+--------+-------+
+| COD_PLANTA | DESCRIPCION | COD_TIPO_PLANTA | PRECIO | STOCK |
++------------+-------------+-----------------+--------+-------+
+|          4 | MARGARITA   |               5 |  31.20 |   150 |
+|          5 | CLAVEL      |               5 |  22.00 |   120 |
++------------+-------------+-----------------+--------+-------+
+
+
+
+2)
+
+select APELLIDO , NOMBRE from CLIENTES as CL join FACTURAS as F where YEAR(F.FECHA) = 2011 and MONTH(F.FECHA) = 10;
+
+
++----------+-------------+
+| APELLIDO | NOMBRE      |
++----------+-------------+
+| ALONSO   | CLAUDIO     |
+| ALVAREZ  | MARCELO     |
+| ALVAREZ  | CRISTINA    |
+| ALVAREZ  | CLAUDIO     |
+| CAMPOS   | RAUL        |
+| DURAN    | CARLA       |
+| PEREZ    | MARIA       |
+| ZAMORA   | CARLOS LUIS |
+| PEREZ    | ANA         |
+| PEREA    | LUIS M.     |
+| PONCE    | CARMELO     |
+| GALES    | JULIA       |
+| SUAREZ   | PAOLA       |
+| MARANINI | JOSE        |
+| FONCECA  | BERTA       |
++----------+-------------+
+
+
+3)
+
+select * from CLIENTES where YEAR(Fec_Nac) = YEAR(NOW()) and MONTH(Fec_Nac) = MONTH(NOW()) and DAY(Fec_Nac) = DAY(NOW());
+
+
+4)
+
+select F.NRO_FACTURA , F.FECHA , P.DESCRIPCION  from FACTURAS as F join DETALLES_FACTURAS as DF on F.NRO_FACTURA = DF.NRO_FACTURA join PLANTAS as P join CLIENTES as CL where P.DESCRIPCION like'P%' and F.NRO_FACTURA > 50 and CL.CUIT = "254871128";  
++-------------+------------+-------------+
+| NRO_FACTURA | FECHA      | DESCRIPCION |
++-------------+------------+-------------+
+|          51 | 2012-02-12 | PINO        |
+|          51 | 2012-02-12 | PALMERA     |
+|          51 | 2012-02-12 | PENSAMIENTO |
+|          51 | 2012-02-12 | PINO        |
+|          51 | 2012-02-12 | PALMERA     |
+|          51 | 2012-02-12 | PENSAMIENTO |
+|          52 | 2012-03-12 | PINO        |
+|          52 | 2012-03-12 | PALMERA     |
+|          52 | 2012-03-12 | PENSAMIENTO |
+|          53 | 2012-03-12 | PINO        |
+|          53 | 2012-03-12 | PALMERA     |
+|          53 | 2012-03-12 | PENSAMIENTO |
+|          54 | 2012-03-11 | PINO        |
+|          54 | 2012-03-11 | PALMERA     |
+|          54 | 2012-03-11 | PENSAMIENTO |
+|          55 | 2012-03-22 | PINO        |
+|          55 | 2012-03-22 | PALMERA     |
+|          55 | 2012-03-22 | PENSAMIENTO |
+|          55 | 2012-03-22 | PINO        |
+|          55 | 2012-03-22 | PALMERA     |
+|          55 | 2012-03-22 | PENSAMIENTO |
+|          56 | 2012-03-24 | PINO        |
+|          56 | 2012-03-24 | PALMERA     |
+|          56 | 2012-03-24 | PENSAMIENTO |
+|          56 | 2012-03-24 | PINO        |
+|          56 | 2012-03-24 | PALMERA     |
+|          56 | 2012-03-24 | PENSAMIENTO |
+|          57 | 2012-04-08 | PINO        |
+|          57 | 2012-04-08 | PALMERA     |
+|          57 | 2012-04-08 | PENSAMIENTO |
+|          58 | 2012-04-21 | PINO        |
+|          58 | 2012-04-21 | PALMERA     |
+|          58 | 2012-04-21 | PENSAMIENTO |
+|          58 | 2012-04-21 | PINO        |
+|          58 | 2012-04-21 | PALMERA     |
+|          58 | 2012-04-21 | PENSAMIENTO |
+|          58 | 2012-04-21 | PINO        |
+|          58 | 2012-04-21 | PALMERA     |
+|          58 | 2012-04-21 | PENSAMIENTO |
+|          59 | 2012-04-21 | PINO        |
+|          59 | 2012-04-21 | PALMERA     |
+|          59 | 2012-04-21 | PENSAMIENTO |
+|          59 | 2012-04-21 | PINO        |
+|          59 | 2012-04-21 | PALMERA     |
+|          59 | 2012-04-21 | PENSAMIENTO |
+|          60 | 2012-04-21 | PINO        |
+|          60 | 2012-04-21 | PALMERA     |
+|          60 | 2012-04-21 | PENSAMIENTO |
+|          60 | 2012-04-21 | PINO        |
+|          60 | 2012-04-21 | PALMERA     |
+|          60 | 2012-04-21 | PENSAMIENTO |
+|          61 | 2012-05-12 | PINO        |
+|          61 | 2012-05-12 | PALMERA     |
+|          61 | 2012-05-12 | PENSAMIENTO |
+|          61 | 2012-05-12 | PINO        |
+|          61 | 2012-05-12 | PALMERA     |
+|          61 | 2012-05-12 | PENSAMIENTO |
+|          61 | 2012-05-12 | PINO        |
+|          61 | 2012-05-12 | PALMERA     |
+|          61 | 2012-05-12 | PENSAMIENTO |
+|          62 | 2012-05-11 | PINO        |
+|          62 | 2012-05-11 | PALMERA     |
+|          62 | 2012-05-11 | PENSAMIENTO |
+|          62 | 2012-05-11 | PINO        |
+|          62 | 2012-05-11 | PALMERA     |
+|          62 | 2012-05-11 | PENSAMIENTO |
+|          63 | 2012-05-16 | PINO        |
+|          63 | 2012-05-16 | PALMERA     |
+|          63 | 2012-05-16 | PENSAMIENTO |
+|          64 | 2012-06-12 | PINO        |
+|          64 | 2012-06-12 | PALMERA     |
+|          64 | 2012-06-12 | PENSAMIENTO |
+|          65 | 2012-06-18 | PINO        |
+|          65 | 2012-06-18 | PALMERA     |
+|          65 | 2012-06-18 | PENSAMIENTO |
+|          66 | 2012-06-30 | PINO        |
+|          66 | 2012-06-30 | PALMERA     |
+|          66 | 2012-06-30 | PENSAMIENTO |
+|          66 | 2012-06-30 | PINO        |
+|          66 | 2012-06-30 | PALMERA     |
+|          66 | 2012-06-30 | PENSAMIENTO |
+|          67 | 2012-07-11 | PINO        |
+|          67 | 2012-07-11 | PALMERA     |
+|          67 | 2012-07-11 | PENSAMIENTO |
+|          68 | 2012-07-12 | PINO        |
+|          68 | 2012-07-12 | PALMERA     |
+|          68 | 2012-07-12 | PENSAMIENTO |
+|          69 | 2012-07-12 | PINO        |
+|          69 | 2012-07-12 | PALMERA     |
+|          69 | 2012-07-12 | PENSAMIENTO |
+|          69 | 2012-07-12 | PINO        |
+|          69 | 2012-07-12 | PALMERA     |
+|          69 | 2012-07-12 | PENSAMIENTO |
+|          69 | 2012-07-12 | PINO        |
+|          69 | 2012-07-12 | PALMERA     |
+|          69 | 2012-07-12 | PENSAMIENTO |
+|          70 | 2012-07-12 | PINO        |
+|          70 | 2012-07-12 | PALMERA     |
+|          70 | 2012-07-12 | PENSAMIENTO |
+|          71 | 2012-07-22 | PINO        |
+|          71 | 2012-07-22 | PALMERA     |
+|          71 | 2012-07-22 | PENSAMIENTO |
+|          71 | 2012-07-22 | PINO        |
+|          71 | 2012-07-22 | PALMERA     |
+|          71 | 2012-07-22 | PENSAMIENTO |
+|          72 | 2012-08-11 | PINO        |
+|          72 | 2012-08-11 | PALMERA     |
+|          72 | 2012-08-11 | PENSAMIENTO |
+|          73 | 2012-09-06 | PINO        |
+|          73 | 2012-09-06 | PALMERA     |
+|          73 | 2012-09-06 | PENSAMIENTO |
+|          74 | 2012-09-12 | PINO        |
+|          74 | 2012-09-12 | PALMERA     |
+|          74 | 2012-09-12 | PENSAMIENTO |
+|          75 | 2012-10-08 | PINO        |
+|          75 | 2012-10-08 | PALMERA     |
+|          75 | 2012-10-08 | PENSAMIENTO |
+|          76 | 2012-11-01 | PINO        |
+|          76 | 2012-11-01 | PALMERA     |
+|          76 | 2012-11-01 | PENSAMIENTO |
+|          77 | 2012-12-11 | PINO        |
+|          77 | 2012-12-11 | PALMERA     |
+|          77 | 2012-12-11 | PENSAMIENTO |
+|          77 | 2012-12-11 | PINO        |
+|          77 | 2012-12-11 | PALMERA     |
+|          77 | 2012-12-11 | PENSAMIENTO |
+|          78 | 2012-12-15 | PINO        |
+|          78 | 2012-12-15 | PALMERA     |
+|          78 | 2012-12-15 | PENSAMIENTO |
+|          78 | 2012-12-15 | PINO        |
+|          78 | 2012-12-15 | PALMERA     |
+|          78 | 2012-12-15 | PENSAMIENTO |
+|          79 | 2013-02-12 | PINO        |
+|          79 | 2013-02-12 | PALMERA     |
+|          79 | 2013-02-12 | PENSAMIENTO |
+|          80 | 2013-03-12 | PINO        |
+|          80 | 2013-03-12 | PALMERA     |
+|          80 | 2013-03-12 | PENSAMIENTO |
+|          81 | 2013-03-12 | PINO        |
+|          81 | 2013-03-12 | PALMERA     |
+|          81 | 2013-03-12 | PENSAMIENTO |
+|          81 | 2013-03-12 | PINO        |
+|          81 | 2013-03-12 | PALMERA     |
+|          81 | 2013-03-12 | PENSAMIENTO |
+|          82 | 2013-03-11 | PINO        |
+|          82 | 2013-03-11 | PALMERA     |
+|          82 | 2013-03-11 | PENSAMIENTO |
+|          83 | 2012-03-22 | PINO        |
+|          83 | 2012-03-22 | PALMERA     |
+|          83 | 2012-03-22 | PENSAMIENTO |
+|          84 | 2013-03-24 | PINO        |
+|          84 | 2013-03-24 | PALMERA     |
+|          84 | 2013-03-24 | PENSAMIENTO |
+|          85 | 2013-04-08 | PINO        |
+|          85 | 2013-04-08 | PALMERA     |
+|          85 | 2013-04-08 | PENSAMIENTO |
+|          86 | 2013-04-21 | PINO        |
+|          86 | 2013-04-21 | PALMERA     |
+|          86 | 2013-04-21 | PENSAMIENTO |
+|          87 | 2013-04-21 | PINO        |
+|          87 | 2013-04-21 | PALMERA     |
+|          87 | 2013-04-21 | PENSAMIENTO |
+|          87 | 2013-04-21 | PINO        |
+|          87 | 2013-04-21 | PALMERA     |
+|          87 | 2013-04-21 | PENSAMIENTO |
+|          88 | 2013-04-21 | PINO        |
+|          88 | 2013-04-21 | PALMERA     |
+|          88 | 2013-04-21 | PENSAMIENTO |
+|          88 | 2013-04-21 | PINO        |
+|          88 | 2013-04-21 | PALMERA     |
+|          88 | 2013-04-21 | PENSAMIENTO |
+|          88 | 2013-04-21 | PINO        |
+|          88 | 2013-04-21 | PALMERA     |
+|          88 | 2013-04-21 | PENSAMIENTO |
+|          89 | 2013-05-12 | PINO        |
+|          89 | 2013-05-12 | PALMERA     |
+|          89 | 2013-05-12 | PENSAMIENTO |
+|          89 | 2013-05-12 | PINO        |
+|          89 | 2013-05-12 | PALMERA     |
+|          89 | 2013-05-12 | PENSAMIENTO |
+|          89 | 2013-05-12 | PINO        |
+|          89 | 2013-05-12 | PALMERA     |
+|          89 | 2013-05-12 | PENSAMIENTO |
+|          90 | 2013-05-11 | PINO        |
+|          90 | 2013-05-11 | PALMERA     |
+|          90 | 2013-05-11 | PENSAMIENTO |
+|          91 | 2013-05-16 | PINO        |
+|          91 | 2013-05-16 | PALMERA     |
+|          91 | 2013-05-16 | PENSAMIENTO |
+|          91 | 2013-05-16 | PINO        |
+|          91 | 2013-05-16 | PALMERA     |
+|          91 | 2013-05-16 | PENSAMIENTO |
+|          92 | 2013-06-12 | PINO        |
+|          92 | 2013-06-12 | PALMERA     |
+|          92 | 2013-06-12 | PENSAMIENTO |
+|          93 | 2013-06-18 | PINO        |
+|          93 | 2013-06-18 | PALMERA     |
+|          93 | 2013-06-18 | PENSAMIENTO |
+|          94 | 2013-06-22 | PINO        |
+|          94 | 2013-06-22 | PALMERA     |
+|          94 | 2013-06-22 | PENSAMIENTO |
+|          95 | 2013-07-11 | PINO        |
+|          95 | 2013-07-11 | PALMERA     |
+|          95 | 2013-07-11 | PENSAMIENTO |
+|          96 | 2013-07-12 | PINO        |
+|          96 | 2013-07-12 | PALMERA     |
+|          96 | 2013-07-12 | PENSAMIENTO |
+|          97 | 2013-07-12 | PINO        |
+|          97 | 2013-07-12 | PALMERA     |
+|          97 | 2013-07-12 | PENSAMIENTO |
+|          97 | 2013-07-12 | PINO        |
+|          97 | 2013-07-12 | PALMERA     |
+|          97 | 2013-07-12 | PENSAMIENTO |
+|          98 | 2013-07-12 | PINO        |
+|          98 | 2013-07-12 | PALMERA     |
+|          98 | 2013-07-12 | PENSAMIENTO |
+|          98 | 2013-07-12 | PINO        |
+|          98 | 2013-07-12 | PALMERA     |
+|          98 | 2013-07-12 | PENSAMIENTO |
+|          99 | 2013-07-24 | PINO        |
+|          99 | 2013-07-24 | PALMERA     |
+|          99 | 2013-07-24 | PENSAMIENTO |
+|         100 | 2013-08-11 | PINO        |
+|         100 | 2013-08-11 | PALMERA     |
+|         100 | 2013-08-11 | PENSAMIENTO |
+|         101 | 2013-09-10 | PINO        |
+|         101 | 2013-09-10 | PALMERA     |
+|         101 | 2013-09-10 | PENSAMIENTO |
+|         101 | 2013-09-10 | PINO        |
+|         101 | 2013-09-10 | PALMERA     |
+|         101 | 2013-09-10 | PENSAMIENTO |
+|         102 | 2013-09-18 | PINO        |
+|         102 | 2013-09-18 | PALMERA     |
+|         102 | 2013-09-18 | PENSAMIENTO |
+|         103 | 2013-10-08 | PINO        |
+|         103 | 2013-10-08 | PALMERA     |
+|         103 | 2013-10-08 | PENSAMIENTO |
+|         104 | 2013-11-01 | PINO        |
+|         104 | 2013-11-01 | PALMERA     |
+|         104 | 2013-11-01 | PENSAMIENTO |
+|         105 | 2013-12-15 | PINO        |
+|         105 | 2013-12-15 | PALMERA     |
+|         105 | 2013-12-15 | PENSAMIENTO |
+|         106 | 2013-12-20 | PINO        |
+|         106 | 2013-12-20 | PALMERA     |
+|         106 | 2013-12-20 | PENSAMIENTO |
+|         107 | 2014-02-12 | PINO        |
+|         107 | 2014-02-12 | PALMERA     |
+|         107 | 2014-02-12 | PENSAMIENTO |
+|         107 | 2014-02-12 | PINO        |
+|         107 | 2014-02-12 | PALMERA     |
+|         107 | 2014-02-12 | PENSAMIENTO |
+|         108 | 2014-03-12 | PINO        |
+|         108 | 2014-03-12 | PALMERA     |
+|         108 | 2014-03-12 | PENSAMIENTO |
+|         108 | 2014-03-12 | PINO        |
+|         108 | 2014-03-12 | PALMERA     |
+|         108 | 2014-03-12 | PENSAMIENTO |
+|         109 | 2014-03-12 | PINO        |
+|         109 | 2014-03-12 | PALMERA     |
+|         109 | 2014-03-12 | PENSAMIENTO |
+|         109 | 2014-03-12 | PINO        |
+|         109 | 2014-03-12 | PALMERA     |
+|         109 | 2014-03-12 | PENSAMIENTO |
+|         110 | 2014-03-11 | PINO        |
+|         110 | 2014-03-11 | PALMERA     |
+|         110 | 2014-03-11 | PENSAMIENTO |
+|         111 | 2014-03-22 | PINO        |
+|         111 | 2014-03-22 | PALMERA     |
+|         111 | 2014-03-22 | PENSAMIENTO |
+|         112 | 2014-03-24 | PINO        |
+|         112 | 2014-03-24 | PALMERA     |
+|         112 | 2014-03-24 | PENSAMIENTO |
+|         112 | 2014-03-24 | PINO        |
+|         112 | 2014-03-24 | PALMERA     |
+|         112 | 2014-03-24 | PENSAMIENTO |
+|         113 | 2014-04-08 | PINO        |
+|         113 | 2014-04-08 | PALMERA     |
+|         113 | 2014-04-08 | PENSAMIENTO |
+|         114 | 2014-04-16 | PINO        |
+|         114 | 2014-04-16 | PALMERA     |
+|         114 | 2014-04-16 | PENSAMIENTO |
+|         115 | 2014-04-16 | PINO        |
+|         115 | 2014-04-16 | PALMERA     |
+|         115 | 2014-04-16 | PENSAMIENTO |
+|         116 | 2014-04-22 | PINO        |
+|         116 | 2014-04-22 | PALMERA     |
+|         116 | 2014-04-22 | PENSAMIENTO |
+|         116 | 2014-04-22 | PINO        |
+|         116 | 2014-04-22 | PALMERA     |
+|         116 | 2014-04-22 | PENSAMIENTO |
+|         116 | 2014-04-22 | PINO        |
+|         116 | 2014-04-22 | PALMERA     |
+|         116 | 2014-04-22 | PENSAMIENTO |
+|         117 | 2014-05-17 | PINO        |
+|         117 | 2014-05-17 | PALMERA     |
+|         117 | 2014-05-17 | PENSAMIENTO |
+|         117 | 2014-05-17 | PINO        |
+|         117 | 2014-05-17 | PALMERA     |
+|         117 | 2014-05-17 | PENSAMIENTO |
+|         118 | 2014-06-12 | PINO        |
+|         118 | 2014-06-12 | PALMERA     |
+|         118 | 2014-06-12 | PENSAMIENTO |
+|         118 | 2014-06-12 | PINO        |
+|         118 | 2014-06-12 | PALMERA     |
+|         118 | 2014-06-12 | PENSAMIENTO |
+|         119 | 2014-07-19 | PINO        |
+|         119 | 2014-07-19 | PALMERA     |
+|         119 | 2014-07-19 | PENSAMIENTO |
+|         119 | 2014-07-19 | PINO        |
+|         119 | 2014-07-19 | PALMERA     |
+|         119 | 2014-07-19 | PENSAMIENTO |
+|         120 | 2014-08-11 | PINO        |
+|         120 | 2014-08-11 | PALMERA     |
+|         120 | 2014-08-11 | PENSAMIENTO |
+|         120 | 2014-08-11 | PINO        |
+|         120 | 2014-08-11 | PALMERA     |
+|         120 | 2014-08-11 | PENSAMIENTO |
+|         121 | 2014-08-20 | PINO        |
+|         121 | 2014-08-20 | PALMERA     |
+|         121 | 2014-08-20 | PENSAMIENTO |
+|         122 | 2014-09-24 | PINO        |
+|         122 | 2014-09-24 | PALMERA     |
+|         122 | 2014-09-24 | PENSAMIENTO |
+|         123 | 2014-10-02 | PINO        |
+|         123 | 2014-10-02 | PALMERA     |
+|         123 | 2014-10-02 | PENSAMIENTO |
+|         123 | 2014-10-02 | PINO        |
+|         123 | 2014-10-02 | PALMERA     |
+|         123 | 2014-10-02 | PENSAMIENTO |
+|         124 | 2014-10-06 | PINO        |
+|         124 | 2014-10-06 | PALMERA     |
+|         124 | 2014-10-06 | PENSAMIENTO |
+|         125 | 2014-11-23 | PINO        |
+|         125 | 2014-11-23 | PALMERA     |
+|         125 | 2014-11-23 | PENSAMIENTO |
+|         126 | 2014-12-22 | PINO        |
+|         126 | 2014-12-22 | PALMERA     |
+|         126 | 2014-12-22 | PENSAMIENTO |
+|         126 | 2014-12-22 | PINO        |
+|         126 | 2014-12-22 | PALMERA     |
+|         126 | 2014-12-22 | PENSAMIENTO |
+|         127 | 2015-02-02 | PINO        |
+|         127 | 2015-02-02 | PALMERA     |
+|         127 | 2015-02-02 | PENSAMIENTO |
+|         127 | 2015-02-02 | PINO        |
+|         127 | 2015-02-02 | PALMERA     |
+|         127 | 2015-02-02 | PENSAMIENTO |
+|         127 | 2015-02-02 | PINO        |
+|         127 | 2015-02-02 | PALMERA     |
+|         127 | 2015-02-02 | PENSAMIENTO |
+|         128 | 2015-03-01 | PINO        |
+|         128 | 2015-03-01 | PALMERA     |
+|         128 | 2015-03-01 | PENSAMIENTO |
+|         128 | 2015-03-01 | PINO        |
+|         128 | 2015-03-01 | PALMERA     |
+|         128 | 2015-03-01 | PENSAMIENTO |
+|         129 | 2015-03-16 | PINO        |
+|         129 | 2015-03-16 | PALMERA     |
+|         129 | 2015-03-16 | PENSAMIENTO |
+|         129 | 2015-03-16 | PINO        |
+|         129 | 2015-03-16 | PALMERA     |
+|         129 | 2015-03-16 | PENSAMIENTO |
+|         129 | 2015-03-16 | PINO        |
+|         129 | 2015-03-16 | PALMERA     |
+|         129 | 2015-03-16 | PENSAMIENTO |
+|         129 | 2015-03-16 | PINO        |
+|         129 | 2015-03-16 | PALMERA     |
+|         129 | 2015-03-16 | PENSAMIENTO |
+|         130 | 2015-03-19 | PINO        |
+|         130 | 2015-03-19 | PALMERA     |
+|         130 | 2015-03-19 | PENSAMIENTO |
+|         131 | 2015-03-25 | PINO        |
+|         131 | 2015-03-25 | PALMERA     |
+|         131 | 2015-03-25 | PENSAMIENTO |
+|         131 | 2015-03-25 | PINO        |
+|         131 | 2015-03-25 | PALMERA     |
+|         131 | 2015-03-25 | PENSAMIENTO |
+|         132 | 2015-03-27 | PINO        |
+|         132 | 2015-03-27 | PALMERA     |
+|         132 | 2015-03-27 | PENSAMIENTO |
+|         133 | 2015-04-04 | PINO        |
+|         133 | 2015-04-04 | PALMERA     |
+|         133 | 2015-04-04 | PENSAMIENTO |
+|         134 | 2015-04-20 | PINO        |
+|         134 | 2015-04-20 | PALMERA     |
+|         134 | 2015-04-20 | PENSAMIENTO |
+|         135 | 2015-04-25 | PINO        |
+|         135 | 2015-04-25 | PALMERA     |
+|         135 | 2015-04-25 | PENSAMIENTO |
+|         136 | 2015-04-28 | PINO        |
+|         136 | 2015-04-28 | PALMERA     |
+|         136 | 2015-04-28 | PENSAMIENTO |
+|         136 | 2015-04-28 | PINO        |
+|         136 | 2015-04-28 | PALMERA     |
+|         136 | 2015-04-28 | PENSAMIENTO |
++-------------+------------+-------------+
+
+
+5)
+select COUNT(*)"Clientes con Facturas" from CLIENTES as CL join FACTURAS as F on CL.COD_CLIENTE = F.NRO_FACTURA ;
+
+
+
+
